@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "MachineLearning"
+version = "0.1.0"
+description = "Goal-oriented dimension reduction on the Grassmann manifold with ridge surrogates and heteroscedastic GP residual modelling."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Tim Dodwell" }]
+dependencies = [
+  "numpy",
+  "torch",
+  "gpytorch",
+  "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
