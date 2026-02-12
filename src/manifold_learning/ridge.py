@@ -12,7 +12,7 @@ def ridge_solve(Phi: torch.Tensor, f: torch.Tensor, lam: float) -> torch.Tensor:
     """
     if f.ndim == 2 and f.shape[1] == 1:
         f = f[:, 0]
-    B, p = Phi.shape
+    _, p = Phi.shape
     A = Phi.T @ Phi + lam * torch.eye(p, device=Phi.device, dtype=Phi.dtype)  # (p, p)
     b = Phi.T @ f  # (p,)
     alpha = torch.linalg.solve(A, b)  # (p,)
